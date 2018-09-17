@@ -1,7 +1,7 @@
 public class firstCalculation extends Calculate {
 	public void multiply (int numOne, int numTwo) {
 		answer = numOne * numTwo;
-		System.out.println("The product of num one and num two is: " + answer);
+		System.out.println("The product of " + numOne + " and " + numTwo + " is: " + answer);
 	}
 	
 	public static void main(String args[]) {

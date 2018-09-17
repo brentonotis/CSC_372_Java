@@ -1,18 +1,21 @@
 package emp_mgr;
 
 public class Employee {
+	// Superclass fields
 	private String firstName;
 	private String lastName;
 	private int employeeID;
 	protected double salary;
-	
+
+	// Constructors, initializing salary to 0.0
 	public Employee(String firstName, String lastName, int employeeID) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.employeeID = employeeID;
 		this.salary = 0.0;
 	}
-	
+
+	// Getters/Setters for firstName,Lastname, and employeeID
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +40,7 @@ public class Employee {
 		this.employeeID = employeeID;
 	}
 	
+	// Summary print statement
 	public void EmployeeSummary() {
 		System.out.println("Employee ID: " + employeeID);
 		System.out.println("First Name: " + firstName);
@@ -45,8 +49,8 @@ public class Employee {
 		return;
 	}
 	
-	public static void main (String[] args) {
-		
+	// Test main/driver
+	public static void main (String[] args) {	
 		Employee test = new Employee ("Timothy", "Tim", 987654);
 		test.salary = 15.75;
 		test.EmployeeSummary();

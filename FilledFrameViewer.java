@@ -9,9 +9,11 @@ public class FilledFrameViewer {
 	
 	public static void main (String[] args) {
 		
-		// Constructors
+		// Frame/Panel constructors
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
+		
+		// Component constructors
 		JButton button = new JButton("I'm a button.");
 		JLabel label = new JLabel("And I'm a label.");
 		
@@ -38,3 +40,4 @@ public class FilledFrameViewer {
 		
 	}
 }
+

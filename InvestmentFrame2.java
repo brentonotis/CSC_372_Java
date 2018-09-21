@@ -6,7 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class InvestmentFrame2 extends JFrame {
 	
@@ -14,8 +16,11 @@ public class InvestmentFrame2 extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	// declare static/final instance variables
-	private static final int FRAME_WIDTH = 400;
-	private static final int FRAME_HEIGHT = 100;
+	private static final int FRAME_WIDTH = 500;
+	private static final int FRAME_HEIGHT = 350;
+	
+	private static final int AREA_ROWS = 10;
+	private static final int AREA_COLUMNS = 30;
 	
 	private static final double DEFAULT_RATE = 5;
 	private static final double INITIAL_BALANCE = 1000;
@@ -24,15 +29,17 @@ public class InvestmentFrame2 extends JFrame {
 	private JLabel rateLabel;
 	private JTextField rateField;
 	private JButton button;
-	private JLabel resultLabel;
+	private JTextArea resultArea;
 	private double balance;
 	
-	// constructor - initializes balance, label, and creates components via helper methods
+	// constructor - initializes balance, text area, and creates components via helper methods
 	public InvestmentFrame2() {
 		
 		balance = INITIAL_BALANCE;
 		
-		resultLabel = new JLabel("Balance: " + balance);
+		resultArea = new JTextArea(AREA_ROWS, AREA_COLUMNS);
+		resultArea.setText(balance + "\n");
+		resultArea.setEditable(false);
 		
 		createTextField();
 		createButton();
@@ -62,7 +69,7 @@ public class InvestmentFrame2 extends JFrame {
 			// creates variable interest, calculates balance + interest, sets text to resultLabel
 			double interest = balance * rate / 100;
 			balance += interest;
-			resultLabel.setText("Balance: " + balance);
+			resultArea.append(balance + "\n");
 		}
 	}
 	
@@ -82,7 +89,8 @@ public class InvestmentFrame2 extends JFrame {
 		panel.add(rateLabel);
 		panel.add(rateField);
 		panel.add(button);
-		panel.add(resultLabel);
+		JScrollPane scrollPane = new JScrollPane(resultArea);
+		panel.add(scrollPane);
 		add(panel);
 	}
 

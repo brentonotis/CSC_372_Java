@@ -6,5 +6,5 @@
 * Events & Event Handling
 * Text Input
 * Drawing
-
+* GUI's
 

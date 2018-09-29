@@ -19,11 +19,6 @@ public class StopLight {
 	JButton yieldButton;
 	JButton stopButton;
 	int counter = 0;
-
-	public static void main (String[] args) {
-		StopLight s = new StopLight();
-		s.make();
-	}
 	
 	public void make() {
 		frame = new JFrame("Stop Light");
@@ -107,5 +102,10 @@ public class StopLight {
 				g.fillOval(160, 200, 80, 80);
 			}
 		}
+	}
+	
+	public static void main (String[] args) {
+		StopLight s = new StopLight();
+		s.make();
 	}
 }

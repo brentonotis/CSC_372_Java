@@ -7,4 +7,6 @@
 * Text Input
 * Drawing
 * GUI's
+* Layout Managers
+* OOP Concepts
 

@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class StopLight {
 	
+	// instance variables
 	JPanel lightPanel;
 	JPanel buttonPanel;
 	JFrame frame;
@@ -19,12 +20,8 @@ public class StopLight {
 	JButton yieldButton;
 	JButton stopButton;
 	int counter = 0;
-
-	public static void main (String[] args) {
-		StopLight s = new StopLight();
-		s.make();
-	}
 	
+	// constructor
 	public void make() {
 		frame = new JFrame("Stop Light");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,6 +49,7 @@ public class StopLight {
 		frame.setVisible(true);	
 	}
 	
+	// action listeners
 	class GoButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			counter = 1;
@@ -73,6 +71,7 @@ public class StopLight {
 		}
 	}
 	
+	// paintComponent override
 	class DrawStopLight extends JPanel {
 		public void paintComponent(Graphics g) {
 			frame.setSize(400, 400);
@@ -107,5 +106,11 @@ public class StopLight {
 				g.fillOval(160, 200, 80, 80);
 			}
 		}
+	}
+	
+	// Driver
+	public static void main (String[] args) {
+		StopLight s = new StopLight();
+		s.make();
 	}
 }

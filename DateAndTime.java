@@ -1,5 +1,10 @@
 package test;
 
+/** Program displaying a GUI that displays current time and/or date when user clicks appropriate button.
+ * Background color changes to a random color each time a user clicks any button.
+ * Output label at bottom of GUI displays console output.
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -28,9 +33,7 @@ public class DateAndTime extends JFrame {
 	private JLabel blankLabelWest;
 	
 	private static final int FRAME_WIDTH = 475;
-	private static final int FRAME_HEIGHT = 250;
-
-	
+	private static final int FRAME_HEIGHT = 250;	
 	
 	// Constructor
 	public DateAndTime() {		
@@ -41,56 +44,65 @@ public class DateAndTime extends JFrame {
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	}
 	
-	static List<Color> COLORS = new ArrayList<>();
-	static {
-		COLORS.add(Color.YELLOW);
-		COLORS.add(Color.GREEN);
-		COLORS.add(Color.GRAY);
-		COLORS.add(Color.PINK);
-	}
-	
-	
 	// Create event listener via ActionListener interface
 	class getDateListener implements ActionListener {
+		// @override
 		public void actionPerformed(ActionEvent event) {
+			// Create new Date object (to get the most current date/time when event is triggered)
 			Date current = new Date();
+			// Create SimpleDateFormat object with specified style (getting date only)
 			SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, Y");
+			// Output current date in specified SimpleDateFormat
 			System.out.println(sdf.format(current));
 			dateDisplay.setText("Current Date: " + sdf.format(current));
 			outputLabel.setText("Console Output: " + sdf.format(current));
-			getContentPane().setBackground(Color.YELLOW);
-			
+			// Change background color to random color - gets random number and multiplies by hex value
+			getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)));	
 		}
 	}
 	
 	// Create event listener via ActionListener interface
 	class getTimeListener implements ActionListener {
+		// @override
 		public void actionPerformed(ActionEvent event) {
+			// Create new Date object (to get the most current date/time when event is triggered)
 			Date current = new Date();
+			// Create SimpleDateFormat object with specified style (getting time only)
 			SimpleDateFormat stf = new SimpleDateFormat("hh:mm:ss");
+			// Output current time in specified SimpleDateFormat
 			System.out.println(stf.format(current));
 			timeDisplay.setText("Current Time: " + stf.format(current));
 			outputLabel.setText("Console Output: " + stf.format(current));
-			getContentPane().setBackground(Color.BLUE);
+			// Change background color to random color - gets random number and multiplies by hex value
+			getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)));
 		}
 	}
 	
 	// Create event listener via ActionListener interface
 	class getBothListener implements ActionListener {
+		// @override
 		public void actionPerformed(ActionEvent event) {
+			// Create new Date object (to get most current date/time when event is triggered)
 			Date current = new Date();
+			// Create SimpleDateFormat object with specified style (getting both time and date)
 			SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, Y");
 			SimpleDateFormat stf = new SimpleDateFormat("hh:mm:ss");
+			// Output current time and date in specified SimpleDateFormat
 			System.out.print(stf.format(current));
 			System.out.println(" on " + sdf.format(current));
 			dateDisplay.setText("Current Date: " + sdf.format(current));
 			timeDisplay.setText("Current Time: " + stf.format(current));
 			outputLabel.setText("Console Output: " + stf.format(current) + " on " + sdf.format(current));
-			getContentPane().setBackground(Color.GREEN);
+			// Change background color to random color - gets random number and multiplies by hex value
+			getContentPane().setBackground(new Color((int)(Math.random() * 0x1000000)));
 		}
 	}	
 	/** Helper methods:
-	 * TODO: expand
+	 * Create buttons and action listeners, attach listeners to buttons
+	 * Create labels, set horizontal alignment to center where needed
+	 * Create panels, set panels to opaque (to reveal content pane for color change)
+	 * Set layout managers per panel (Grid & Border) and add panels to main panel
+	 * Add main panel to frame
 	 */
 	public void createButtons() {
 				
@@ -142,8 +154,7 @@ public class DateAndTime extends JFrame {
 		JPanel centerPanel = new JPanel (new GridLayout(2, 1));
 		centerPanel.setOpaque(false);
 		centerPanel.add(buttonPanel);
-		centerPanel.add(displayPanel);
-		
+		centerPanel.add(displayPanel);		
 
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.setOpaque(false);
@@ -157,7 +168,6 @@ public class DateAndTime extends JFrame {
 		add(panel);
 	}
 	
-
 	// Driver
 	public static void main(String[] args) {
 
@@ -167,4 +177,3 @@ public class DateAndTime extends JFrame {
 		frame.setVisible(true);		
 	}
 }
-

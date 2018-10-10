@@ -16,10 +16,9 @@ import javax.swing.JScrollPane;
   * Program displays text field that shows each user selected action and result
  **/
 
+@SuppressWarnings("serial") 
 public class BankBalance extends JFrame {
-		
-	// Version control
-	private static final long serialVersionUID = 1L;
+
 	// Declare component instance variables
 	private JButton depositButton;
 	private JButton withdrawButton;

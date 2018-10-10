@@ -10,12 +10,15 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
+/** Program/GUI that allows user to input/output a nominal amount.
+  * Program displays balance with each user action
+  * Program does not allow user to withdraw if withdrawl amount exceeds available balance
+  * Program displays text field that shows each user selected action and result
+ **/
 
 public class BankBalance extends JFrame {
 		
-	/**
-	 ** ? **
-	 */
+	// Version control
 	private static final long serialVersionUID = 1L;
 	// Declare component instance variables
 	private JButton depositButton;

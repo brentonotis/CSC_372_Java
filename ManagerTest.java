@@ -1,59 +1,61 @@
 package emp_mgr;
 
+/**
+ * Java test class for Manager (and Employee) classes;
+ * Tests known scenarios
+ * @author Brenton Otis
+ */
+
 public class ManagerTest extends Manager {
+	// Constructor
 	public ManagerTest(String firstName, String lastName, int employeeID, String department) {
+		// 'super' used inside subclass method definition to call method defined in super class
 		super(firstName, lastName, employeeID, department);
 	}
 	
-	// Main/driver for test class
+	// Driver
 	public static void main(String[] args) {
-
-		// Initializing new object testData and int testCounter
+		// Initialize new ManagerTest object
 		ManagerTest testData = new ManagerTest("", "", 0, "");
 		int testCounter = 0;
 		
 		System.out.println("Testing...");
-		
-		// Testing firstName getters/setters
+		// Set firstName, check Setter/Getter, increment testCounter variable if test fails
 		testData.setFirstName("Brenton");				
 		if (testData.getFirstName() != "Brenton") {
 			System.out.println("TEST FAILED: get/set firstName");
 			++testCounter;
 		}
-		
-		// Testing lastName getters/setters
+		// Set lsatName, check Setter/Getter, increment testCounter variable if test fails
 		testData.setLastName("Otis");
 		if (testData.getLastName() != "Otis") {
 			System.out.println("TEST FAILED: get/set lastName");
 			++testCounter;
 		}
-		
-		// Testing employeeID getters/setters
+		// Set EmployeeID, check Setter/Getter, increment testCounter variable if test fails
 		testData.setEmployeeId(999999);
 		if (testData.getEmployeeId() != 999999) {
 			System.out.println("TEST FAILED: get/set employeeID");
 			++testCounter;
 		}
 		
-		// Testing department getters/setters
+		// Set Department, check Setter/Getter, increment testCounter variable if test fails
 		testData.setDepartment("Engineering");
 		if (testData.getDepartment() != "Engineering") {
 			System.out.println("TEST FAILED: get/set department");
 			++testCounter;
 		}
-		
-		// Testing salary functionality
+		// Set salary, check salary, increment testCounter variable if test fails
 		testData.salary = 9999999.99;
 		if (testData.salary != 9999999.99) {
 			System.out.println("TEST FAILED: salary");
 			++testCounter;
 		}
-		
-		// Sample program output with test object
+		// Print summary
 		System.out.println("Sample EmployeeSummary() output below:");
 		testData.EmployeeSummary();
 		System.out.println("Department: " + testData.department);
-
+		// Print number of test failed if applicable
 		System.out.println("Testing complete. " + testCounter + " test(s) failed.");
 	}
 }

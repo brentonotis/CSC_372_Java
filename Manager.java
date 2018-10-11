@@ -1,6 +1,16 @@
 package emp_mgr;
 
+/**
+ * Java class extending/inheriting Employee class;
+ * Has an additional attribute (department);
+ * Method:
+ * EmployeeSummary();
+ * @author Brenton Otis
+ */
+
 public class Manager extends Employee {
+	
+	// Instance variable
 	String department;
 	
 	// Constructor
@@ -8,24 +18,24 @@ public class Manager extends Employee {
 		super(firstName, lastName, employeeID);
 		this.department = department;
 	}
-	
-	// Getters/setters for subclass field (department)
+	/**
+	 * Getter
+	 * @return department
+	 */
 	public String getDepartment() {
 		return department;
 	}
-	
+	// Setter
 	public void setDepartment (String department) {
 		this.department = department;
 	}
-	
-	// Test main/driver
+	// Driver
 	public static void main (String args[]) {
-		System.out.println("Testing Main (Manager):");
-		Manager testMgr = new Manager("Bob", "Bobson", 666666, "Sales");
+		Manager testMgr = new Manager("Bob", "Bobson", 555666, "Sales");
 		testMgr.salary = 20.55;
 		testMgr.EmployeeSummary();
-		System.out.println("Department: " + testMgr.department);
-		System.out.println("Main (Manager) Testing Complete");	
+		System.out.println("Department: " + testMgr.department);	
 	}
 }
+
 

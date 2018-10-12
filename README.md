@@ -8,5 +8,6 @@
 * Drawing
 * GUI's
 * Layout Managers
-* OOP Concepts
+* OOP Design
+* Recursion
 

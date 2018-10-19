@@ -10,4 +10,6 @@
 * Layout Managers
 * OOP Design
 * Recursion
+* Selection Sort
+* Merge Sort
 

@@ -71,6 +71,12 @@ public class Stopwatch {
 		SelectionSorter.sort(a);
 		timer.stop();
 		
-		System.out.println("Elapsed time: " + timer.getElapsedTime() + " milliseconds");
+		System.out.println("Elapsed time with selection sort: " + timer.getElapsedTime() + " milliseconds");
+		
+		timer.start();
+		InsertionSort.sort(a);
+		timer.stop();
+		
+		System.out.println("Elapsed time with insertion sort: " + timer.getElapsedTime() + " milliseconds");
 	}
 }

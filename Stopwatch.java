@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class Stopwatch {
 	
-	private long elapsedTime;
+	private static long elapsedTime;
 	private long startTime;
-	private boolean isRunning;
+	private static boolean isRunning;
 	
 	// Constructor - build stop watch that is in a stopped state/has no elapsed time
 	public Stopwatch() {
@@ -49,7 +49,7 @@ public class Stopwatch {
 	}
 	
 	// Stops the stop watch and resets elapsed time to 0.0
-	public void reset() {
+	public static void reset() {
 		elapsedTime = 0;
 		isRunning = false;
 	}
@@ -72,11 +72,24 @@ public class Stopwatch {
 		timer.stop();
 		
 		System.out.println("Elapsed time with selection sort: " + timer.getElapsedTime() + " milliseconds");
+		reset();
+		
+		int[] b = SelectionSorter.randomIntArray(n,  100);
 		
 		timer.start();
-		InsertionSort.sort(a);
+		InsertionSort.sort(b);
 		timer.stop();
 		
 		System.out.println("Elapsed time with insertion sort: " + timer.getElapsedTime() + " milliseconds");
+		reset();
+		
+		int[] c = SelectionSorter.randomIntArray(n,  100);
+		
+		timer.start();
+		MergeSorter.sort(c);
+		timer.stop();
+		
+		System.out.println("Elapsed time with merge sort: " + timer.getElapsedTime() + " milliseconds");
+		reset();
 	}
 }

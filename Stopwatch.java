@@ -91,5 +91,14 @@ public class Stopwatch {
 		
 		System.out.println("Elapsed time with merge sort: " + timer.getElapsedTime() + " milliseconds");
 		reset();
+		
+		int[] d = SelectionSorter.randomIntArray(n,  100);
+		
+		timer.start();
+		QuickSort.sort(d);
+		timer.stop();
+		
+		System.out.println("Elapsed time with quick sort: " + timer.getElapsedTime() + " milliseconds");
+		reset();
 	}
 }

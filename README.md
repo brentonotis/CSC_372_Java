@@ -10,6 +10,7 @@
 * Layout Managers
 * OOP Design
 * Recursion
-* Selection Sort
-* Merge Sort
+* Selection/Insertion/Merge/Quick Sort
+* Binary/Linear Search
+
 

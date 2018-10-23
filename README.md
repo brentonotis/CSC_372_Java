@@ -12,5 +12,6 @@
 * Recursion
 * Selection/Insertion/Merge/Quick Sort
 * Binary/Linear Search
+* Java Collections Library
 
 

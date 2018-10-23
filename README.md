@@ -6,7 +6,7 @@
 * Events & Event Handling
 * Text Input
 * Drawing
-* GUI's
+* GUI's (Swing)
 * Layout Managers
 * OOP Design
 * Recursion

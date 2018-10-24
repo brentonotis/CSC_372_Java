@@ -6,8 +6,8 @@
 * Events & Event Handling
 * Text Input
 * Drawing
-* GUI's (Swing)
-* Layout Managers
+* GUI's
+* Layout Managers (Swing)
 * OOP Design
 * Recursion
 * Selection/Insertion/Merge/Quick Sort

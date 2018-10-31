@@ -25,8 +25,7 @@ public class SelectionSort {
 		
 		sortReverse(userNames);
 		System.out.println("Sorted alphabetically and in reverse: " + userNames);
-	}
-	
+	}	
 	/**
 	 * Helper method to get array list of names via user input
 	 * @return userNames array list

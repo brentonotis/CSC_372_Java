@@ -57,8 +57,7 @@ public class StudentGrades {
 				}
 			getCommand();
 		}
-	}
-	
+	}	
 	/**
 	 * helper method - prompt user for command
 	 * @return 

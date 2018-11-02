@@ -60,8 +60,7 @@ public class StudentGrades {
 	}	
 	/**
 	 * helper method - prompt user for command
-	 * @return 
-	 * @return 
+	 * @return command variable
 	 */
 	public static String getCommand() {
 		@SuppressWarnings("resource")

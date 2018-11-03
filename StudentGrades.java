@@ -3,7 +3,7 @@ package maps;
 /**
  * CSC372 Final Portfolio Project
  * Program that keeps HashMap in which keys and values are strings - name of student and course grade
- * Prompts user to add or remove students, modify grades, or print all grades (in alphabetical order by key)
+ * Prompts user to add or remove students, modify grades, or print all grades
  * @author Brenton Otis
  */
 
@@ -28,17 +28,22 @@ public class StudentGradesHashMap {
 			if (command.equals("new")) {
 				StudentGrades = newStudent();
 			}
-			if (command.equalsIgnoreCase("remove")) {
+			else if (command.equalsIgnoreCase("remove")) {
 				StudentGrades = removeStudent();
 			}
-			if (command.equalsIgnoreCase("modify")) {
+			else if (command.equalsIgnoreCase("modify")) {
 				StudentGrades = modifyGrade();
 			}
-			if (command.equalsIgnoreCase("print")) {
+			else if (command.equalsIgnoreCase("print")) {
 				StudentGrades = printAll();
 			}
+			// if input not one of the available commands (or quit), prints error message and kicks back to command display
+			else {
+				System.out.println("Invalid command - please try again:");
+				System.out.println("-----------------------------------");
+			}
 			command = getCommand();
-		}
+		}	
 		// prints exit message when while loop breaks/program terminates (command.equals("quit"))
 		System.out.println("Exiting program.");
 	}
@@ -50,11 +55,13 @@ public class StudentGradesHashMap {
 	public static String getCommand() {
 		@SuppressWarnings("resource")
 		Scanner scnr = new Scanner(System.in);
-		System.out.println("Enter 'new' to add new student and grade");
-		System.out.println("Enter 'remove' to remove a student");
-		System.out.println("Enter 'modify' to edit a student's grade");
-		System.out.println("Enter 'print' to view all student's grades");
-		System.out.println("Enter 'quit' to exit program");
+		System.out.println("  --------------------------------------------");
+		System.out.println(" | Enter 'new' to add new student and grade   |");
+		System.out.println(" | Enter 'remove' to remove a student         |");
+		System.out.println(" | Enter 'modify' to edit a student's grade   |");
+		System.out.println(" | Enter 'print' to view all student's grades |");
+		System.out.println(" | Enter 'quit' to exit program               |");
+		System.out.println("  --------------------------------------------");
 		String command = scnr.nextLine();
 		return command;
 	}

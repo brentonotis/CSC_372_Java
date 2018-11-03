@@ -3,7 +3,7 @@ package maps;
 /**
  * CSC372 Final Portfolio Project
  * Program that keeps HashMap in which keys and values are strings - name of student and course grade
- * Prompts user to add or remove students, modify grades, or print all grades
+ * Prompts user to add or remove students, modify grades, or print all grades (in alphabetical order by key)
  * @author Brenton Otis
  */
 

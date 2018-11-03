@@ -8,12 +8,14 @@ package maps;
  */
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.Scanner;
 
 public class StudentGradesHashMap {
 	
-	// variable instance - initialize HashMap
+	// variable instance - initialize HashMap and command variables
 	static HashMap<String, String> StudentGrades = new HashMap<String, String>();
 	static String command;
 	// driver
@@ -21,6 +23,7 @@ public class StudentGradesHashMap {
 		
 		command = getCommand();
 		
+		// while loop allows for user input so long as input is not 'quit' (which terminates program)
 		while (!command.equalsIgnoreCase("quit")) {
 			if (command.equals("new")) {
 				StudentGrades = newStudent();
@@ -33,12 +36,6 @@ public class StudentGradesHashMap {
 			}
 			if (command.equalsIgnoreCase("print")) {
 				StudentGrades = printAll();
-			}
-			if (!command.equalsIgnoreCase("modify") || !command.equalsIgnoreCase("remove") ||
-					!command.equalsIgnoreCase("print") || !command.equalsIgnoreCase("new")) {
-				// TODO: Trying to get error message to display when incorrect command entered; But whatever I put here shows up on each new/remove/modify command as well?
-				// Tried stand alone else statement to trigger error but behaves the same as indicated in above line
-				// Not affected by print command, however?
 			}
 			command = getCommand();
 		}
@@ -62,8 +59,8 @@ public class StudentGradesHashMap {
 		return command;
 	}
 	/**
-	 * helper method - enter new student/grade info. to hashmap
-	 * @return StudentGrades hashmap
+	 * helper method - enter new student/grade info. to hashMap
+	 * @return StudentGrades hashMap
 	 */
 	public static HashMap<String, String> newStudent() {
 		@SuppressWarnings("resource")
@@ -72,24 +69,27 @@ public class StudentGradesHashMap {
 		String studentName = scnr.nextLine();
 		System.out.println("Enter student grade: ");
 		String studentGrade = scnr.nextLine();
+		// Creates new entry in hashMap of user input
 		StudentGrades.put(studentName, studentGrade);
 		System.out.println("New student " + studentName + " succesfully entered.");
 		System.out.println("------------------------------------");
 		return StudentGrades;
 	}
 	/**
-	 * helper method - remove student from hashmap (by key (name))
-	 * @return StudentGrades hashmap
+	 * helper method - remove student from hashMap (by key (name))
+	 * @return StudentGrades hashMap
 	 */
 	public static HashMap<String, String> removeStudent() {
 		@SuppressWarnings("resource")
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("Enter student name to remove: ");
 		String nameToRemove = scnr.nextLine();
+		// check to ensure name entered by user is present in current hashMap
 		if (!StudentGrades.containsKey(nameToRemove)) {
 			System.out.println(nameToRemove + " not present in student records, please try again. (Enter 'print' to see current student records).");
 			System.out.println("----------------------------------------------------------------------------------------------------");
 		}
+		// if name present, remove from hashMap
 		else {
 			StudentGrades.remove(nameToRemove);
 			System.out.println("Student " + nameToRemove + " succesfully removed.");
@@ -98,21 +98,24 @@ public class StudentGradesHashMap {
 		return StudentGrades;
 	}
 	/**
-	 * helper method - modify student grade in hashmap (by key (name))
-	 * @return StudentGrades hashmap
+	 * helper method - modify student grade in hashMap (by key (name))
+	 * @return StudentGrades hashMap
 	 */
 	public static HashMap<String, String> modifyGrade() {
 		@SuppressWarnings("resource")
 		Scanner scnr = new Scanner(System.in);
 		System.out.println("Enter student name to modify: ");
 		String nameToModify = scnr.nextLine();
+		// check that name entered by user is present in HashMap
 		if (!StudentGrades.containsKey(nameToModify)) {
 			System.out.println(nameToModify + " not present in student records, please try again. (Enter 'print' to see current student records).");
 			System.out.println("----------------------------------------------------------------------------------------------------");
 		}
+		// if name present in hashMap, ask user for new grade
 		else {
 			System.out.println("Enter new/modified grade for student: ");
 			String gradeToModify = scnr.nextLine();
+			// Since hashMap doesn't allow duplicate key values, name/grade will effectively replace current name/grade
 			StudentGrades.put(nameToModify, gradeToModify);
 			System.out.println("Student " + nameToModify + "'s grade succesfully changed to " + gradeToModify + ".");
 			System.out.println("-----------------------------------------------");
@@ -120,17 +123,20 @@ public class StudentGradesHashMap {
 		return StudentGrades;
 	}
 	/**
-	 * helper method - print hashmap of student names/grades
-	 * @return StudentGrades hashmap
+	 * helper method - print hashMap of student names/grades in alphabetical order by key (name)
+	 * @return StudentGrades hasMmap
 	 */
 	public static HashMap<String, String> printAll() {
-		// TODO: document keySet/loop
-		// TODO: print sorted in alphabetical order by key
-		Set<String> keySet = StudentGrades.keySet();
+		// initialize TreeMap as StudentGrades HashMap
+		// treeMap implements sortedMap interface, which retains sorted order
+		Map<String, String> sortedMap = new TreeMap<String, String>(StudentGrades);
+		// initialize set, keySet method returns set view of keys
+		Set<String> keySet = sortedMap.keySet();
 		System.out.println("Student Grades");
 		System.out.println("--------------");
+		// iterate through keys of keySet and print key + value
 		for (String key : keySet) {
-			String value = StudentGrades.get(key);
+			String value = sortedMap.get(key);
 			System.out.println(key + ": " + value);
 			}
 		System.out.println("--------------");

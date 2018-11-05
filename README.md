@@ -13,5 +13,5 @@
 * Selection/Insertion/Merge/Quick Sort
 * Binary/Linear Search
 * Java Collections Library
-
+* Queues/Stacks/Maps/Trees
 
